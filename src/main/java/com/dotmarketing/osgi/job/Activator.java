@@ -36,13 +36,13 @@ public class Activator extends GenericBundleActivator {
 
         Map<String, Object> params = new HashMap<String, Object>();
         params.put( "param1", "Host" );
-        params.put( "param2", "Block Directive");
+	//params.put( "param2", "Block Directive");
 	//params.put( "param3", "Page" );
         
 
 	//Set Job's execution time for 30 seconds after the plugin is deployed. You can set your own cron expression.
 	Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, 30);
+        cal.add(Calendar.SECOND, 60);
 
         String cron = new SimpleDateFormat("ss mm H d M ? yyyy").format(cal.getTime());
 
