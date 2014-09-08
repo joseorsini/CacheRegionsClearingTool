@@ -18,6 +18,8 @@ import com.dotmarketing.util.MaintenanceUtil;
  */
 public class CacheRegionsClearingJob implements Job {
 
+   private String CACHE_REGIONS_PARAM_PREFIX = "param";
+
     @Override
     public void execute ( JobExecutionContext context ) throws JobExecutionException {
 
@@ -35,9 +37,10 @@ public class CacheRegionsClearingJob implements Job {
             	String cacheRegion = jobDataMap.get("param" + j).toString();
             	if(UtilMethods.isSet(cacheRegion)){
             		try{
-				Logger.info( this, "Clearing " + cacheRegion + " Cache Region..");
+				Logger.info( this, "Clearing " + cacheRegion + " Cache Region...");
                 	        CacheLocator.getCache(cacheRegion).clearCache();
                     }catch (NullPointerException e) {
+			Logger.info( this, "Flushing All Caches...");
                         MaintenanceUtil.flushCache();
                     }
             	}

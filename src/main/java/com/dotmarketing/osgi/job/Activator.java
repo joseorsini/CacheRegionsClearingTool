@@ -31,17 +31,26 @@ public class Activator extends GenericBundleActivator {
         //Clear Host Cache
         //clearHostCache();
 
-        // Job params
+        //Set Cache Regions. Key Values must always start with "param" and end with consecutive numbers.
+	//See plugin's README.md for getting a whole list of Cache Regions names.
+
         Map<String, Object> params = new HashMap<String, Object>();
         params.put( "param1", "Host" );
-        //params.put( "param2", "value2" );
+        params.put( "param2", "Block Directive");
+	//params.put( "param3", "Page" );
+        
 
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, 60);
+	//Set Job's execution time for 30 seconds after the plugin is deployed. You can set your own cron expression.
+	Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.SECOND, 30);
 
         String cron = new SimpleDateFormat("ss mm H d M ? yyyy").format(cal.getTime());
 
-                //Creating our custom Quartz Job
+	//Set your own Cron Expression. Comment the code above before setting this custom cronexp
+	//String cron = "0 0 0 1/1 * ? *";//Every day at 00:00 server time
+
+
+        //Creating our custom Quartz Job
         CronScheduledTask cronScheduledTask =
                 new CronScheduledTask( JOB_NAME, JOB_GROUP, JOB_NAME, JOB_CLASS,
                         new Date(), null, CronTrigger.MISFIRE_INSTRUCTION_FIRE_ONCE_NOW,
@@ -52,7 +61,8 @@ public class Activator extends GenericBundleActivator {
 
     }
 	
-	
+
+    //Deprecated	
     private void clearHostCache() {
         try{
 
