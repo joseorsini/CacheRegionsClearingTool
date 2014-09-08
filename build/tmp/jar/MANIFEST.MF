@@ -7,7 +7,7 @@ Created-By: 1.7.0_51 (Oracle Corporation)
 DynamicImport-Package: *
 Bundle-Vendor: dotcms
 Bundle-Version: 0.1
-Bnd-LastModified: 1410200663000
+Bnd-LastModified: 1410202052000
 Bundle-ManifestVersion: 2
 Bundle-Activator: com.dotmarketing.osgi.job.Activator
 Bundle-Description: dotCMS - Cache Regions Clearing Job
