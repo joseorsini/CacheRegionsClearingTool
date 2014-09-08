@@ -4,7 +4,11 @@ CacheRegionsClearingTool
 This OSGi Plugin clears specified cache regions on a scheduled basis: By default, it runs 30 seconds after the plugin is added to a dotcms environment or after startup. This value can be edited in Activator class:
 
 ```
+Calendar cal = Calendar.getInstance();
 cal.add(Calendar.SECOND, 30);
+
+String cron = new SimpleDateFormat("ss mm H d M ? yyyy").format(cal.getTime());
+
 ```
 Or you can set up your own cron expression:
 
