@@ -25,9 +25,9 @@ jar {
     manifest {
         name = 'Osgi View Tool'
         instruction 'Bundle-Vendor', 'dotcms'
-        instruction 'Bundle-Description', 'dotCMS - Osgi View Tool example'
+        instruction 'Bundle-Description', 'dotCMS - Cache Regions Clearing Job'
         instruction 'Bundle-DocURL', 'http://www.dotcms.com'
-        instruction 'Bundle-Activator', 'com.dotmarketing.osgi.viewtools.Activator'
+        instruction 'Bundle-Activator', 'com.dotmarketing.osgi.job.Activator'
         instruction 'DynamicImport-Package', '*'
         instruction 'Import-Package', '*;version=0'
     }
